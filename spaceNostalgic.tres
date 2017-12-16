@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=1]
+[gd_resource type="TileSet" load_steps=4 format=1]
 
 [ext_resource path="res://sprites/spritesheet.png" type="Texture" id=1]
 
@@ -6,6 +6,11 @@
 
 custom_solver_bias = 0.0
 extents = Vector2( 5.08973, 5.15371 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [resource]
 
@@ -244,7 +249,7 @@ extents = Vector2( 5.08973, 5.15371 )
 21/texture = ExtResource( 1 )
 21/tex_offset = Vector2( 0, 0 )
 21/modulate = Color( 1, 1, 1, 1 )
-21/region = Rect2( 132, 0, 12, 12 )
+21/region = Rect2( 156, 36, 12, 12 )
 21/occluder_offset = Vector2( 6, 6 )
 21/navigation_offset = Vector2( 6, 6 )
 21/shape_offset = Vector2( 0, 0 )
@@ -255,7 +260,7 @@ extents = Vector2( 5.08973, 5.15371 )
 22/texture = ExtResource( 1 )
 22/tex_offset = Vector2( 0, 0 )
 22/modulate = Color( 1, 1, 1, 1 )
-22/region = Rect2( 132, 12, 12, 12 )
+22/region = Rect2( 156, 0, 12, 12 )
 22/occluder_offset = Vector2( 6, 6 )
 22/navigation_offset = Vector2( 6, 6 )
 22/shape_offset = Vector2( 0, 0 )
@@ -266,7 +271,7 @@ extents = Vector2( 5.08973, 5.15371 )
 23/texture = ExtResource( 1 )
 23/tex_offset = Vector2( 0, 0 )
 23/modulate = Color( 1, 1, 1, 1 )
-23/region = Rect2( 132, 24, 12, 12 )
+23/region = Rect2( 168, 0, 12, 12 )
 23/occluder_offset = Vector2( 6, 6 )
 23/navigation_offset = Vector2( 6, 6 )
 23/shape_offset = Vector2( 0, 0 )
@@ -277,11 +282,55 @@ extents = Vector2( 5.08973, 5.15371 )
 24/texture = ExtResource( 1 )
 24/tex_offset = Vector2( 0, 0 )
 24/modulate = Color( 1, 1, 1, 1 )
-24/region = Rect2( 132, 36, 12, 12 )
+24/region = Rect2( 168, 36, 12, 12 )
 24/occluder_offset = Vector2( 6, 6 )
 24/navigation_offset = Vector2( 6, 6 )
 24/shape_offset = Vector2( 0, 0 )
 24/shapes = [  ]
 24/one_way_collision_direction = Vector2( 0, 0 )
 24/one_way_collision_max_depth = 0.0
+25/name = "platform26"
+25/texture = ExtResource( 1 )
+25/tex_offset = Vector2( 0, 0 )
+25/modulate = Color( 1, 1, 1, 1 )
+25/region = Rect2( 156, 12, 12, 12 )
+25/occluder_offset = Vector2( 6.50662, 6 )
+25/navigation_offset = Vector2( 6.50662, 6 )
+25/shape_offset = Vector2( 6.50662, 6 )
+25/shapes = [ SubResource( 2 ) ]
+25/one_way_collision_direction = Vector2( 0, 0 )
+25/one_way_collision_max_depth = 0.0
+26/name = "platform27"
+26/texture = ExtResource( 1 )
+26/tex_offset = Vector2( 0, 0 )
+26/modulate = Color( 1, 1, 1, 1 )
+26/region = Rect2( 156, 24, 12, 12 )
+26/occluder_offset = Vector2( 6.50662, 6 )
+26/navigation_offset = Vector2( 6.50662, 6 )
+26/shape_offset = Vector2( 6.50662, 6 )
+26/shapes = [ SubResource( 2 ) ]
+26/one_way_collision_direction = Vector2( 0, 0 )
+26/one_way_collision_max_depth = 0.0
+27/name = "platform28"
+27/texture = ExtResource( 1 )
+27/tex_offset = Vector2( 0, 0 )
+27/modulate = Color( 1, 1, 1, 1 )
+27/region = Rect2( 168, 24, 12, 12 )
+27/occluder_offset = Vector2( 6.50662, 6 )
+27/navigation_offset = Vector2( 6.50662, 6 )
+27/shape_offset = Vector2( 6.50662, 6 )
+27/shapes = [ SubResource( 2 ) ]
+27/one_way_collision_direction = Vector2( 0, 0 )
+27/one_way_collision_max_depth = 0.0
+28/name = "platform29"
+28/texture = ExtResource( 1 )
+28/tex_offset = Vector2( 0, 0 )
+28/modulate = Color( 1, 1, 1, 1 )
+28/region = Rect2( 168, 12, 12, 12 )
+28/occluder_offset = Vector2( 6.50662, 6 )
+28/navigation_offset = Vector2( 6.50662, 6 )
+28/shape_offset = Vector2( 6.50662, 6 )
+28/shapes = [ SubResource( 2 ) ]
+28/one_way_collision_direction = Vector2( 0, 0 )
+28/one_way_collision_max_depth = 0.0
 

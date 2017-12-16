@@ -23,6 +23,8 @@ const SLIDE_STOP_MIN_TRAVEL = 1.0 # One pixel
 
 var velocity = Vector2()
 var on_air_time = 100
+var jumping_animation = false
+var animating_jump = false
 
 
 func _fixed_process(delta):
@@ -34,7 +36,6 @@ func _fixed_process(delta):
 	var jump = Input.is_action_pressed("jump")
 	
 	var stop = true
-	print(force.y)
 	if (walk_left and velocity.y):
 		if (velocity.x <= WALK_MIN_SPEED and velocity.x > -WALK_MAX_SPEED):
 			force.x -= WALK_FORCE
@@ -104,7 +105,20 @@ func _fixed_process(delta):
 	if (jump):
 		# Jump must also be allowed to happen if the character left the floor a little bit ago.
 		# Makes controls more snappy.
+		if not jumping_animation:
+			jumping_animation = true
 		velocity.y = -JUMP_SPEED
+	else:
+		jumping_animation = false
+	
+	if (jumping_animation):
+		if not animating_jump:
+			get_node("AnimationPlayer").play("flying")
+			animating_jump = true
+	else:
+		if animating_jump:
+			get_node("AnimationPlayer").play("stopped")
+			animating_jump = false
 	
 	on_air_time += delta
 

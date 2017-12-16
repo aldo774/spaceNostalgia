@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://sprites/spritesheet.png" type="Texture" id=1]
 
@@ -6,6 +6,11 @@
 
 custom_solver_bias = 0.0
 extents = Vector2( 5.08973, 5.15371 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [node name="tileset" type="Node"]
 
@@ -242,7 +247,6 @@ _update_shape_index = 0
 
 [node name="platform9" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 25.3274, 24.6835 )
 texture = ExtResource( 1 )
 region = true
@@ -629,10 +633,10 @@ _update_shape_index = 0
 
 [node name="platform22" type="Sprite" parent="."]
 
-transform/pos = Vector2( 102.432, 24.815 )
+transform/pos = Vector2( 97.5019, 46.252 )
 texture = ExtResource( 1 )
 region = true
-region_rect = Rect2( 132, 0, 12, 12 )
+region_rect = Rect2( 156, 36, 12, 12 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="platform22"]
 
@@ -647,7 +651,9 @@ bounce = 0.0
 
 [node name="Polygon2D" type="Polygon2D" parent="platform22/StaticBody2D"]
 
-polygon = Vector2Array( 5.43419, -6.0652, -8.66705, -6.12787, 5.37151, 8.08659 )
+transform/pos = Vector2( -0.516105, 0.0541512 )
+transform/scale = Vector2( 0.304817, 0.308566 )
+polygon = Vector2Array( 19.6635, -19.5234, -19.6959, -19.5234, 19.6044, 19.2001 )
 uv = Vector2Array(  )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
@@ -661,10 +667,11 @@ invert/border = 100.0
 
 [node name="platform23" type="Sprite" parent="."]
 
-transform/pos = Vector2( 102.168, 11.9025 )
+editor/display_folded = true
+transform/pos = Vector2( 97.5287, 8.07509 )
 texture = ExtResource( 1 )
 region = true
-region_rect = Rect2( 132, 12, 12, 12 )
+region_rect = Rect2( 156, 0, 12, 12 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="platform23"]
 
@@ -679,7 +686,9 @@ bounce = 0.0
 
 [node name="Polygon2D" type="Polygon2D" parent="platform23/StaticBody2D"]
 
-polygon = Vector2Array( 5.50965, 6.00727, 5.50965, -7.5926, -8.65426, 6.13261 )
+transform/pos = Vector2( -0.583708, 0.0659618 )
+transform/scale = Vector2( 0.308176, 0.318043 )
+polygon = Vector2Array( -19.1208, 18.5975, 19.5253, 18.615, 19.6509, -19.2464 )
 uv = Vector2Array(  )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
@@ -691,12 +700,132 @@ texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
 
-[node name="platform24" type="Sprite" parent="."]
+[node name="platform26" type="Sprite" parent="."]
 
-transform/pos = Vector2( 114.817, 12.166 )
+editor/display_folded = true
+transform/pos = Vector2( 97.4002, 20.7978 )
 texture = ExtResource( 1 )
 region = true
-region_rect = Rect2( 132, 24, 12, 12 )
+region_rect = Rect2( 156, 12, 12, 12 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platform26"]
+
+transform/pos = Vector2( 0.506615, 0 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 0.603216, 0, 0, 0.59951, -0.536815, -0.0172531 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform26/StaticBody2D"]
+
+transform/pos = Vector2( -0.536815, -0.0172531 )
+transform/scale = Vector2( 0.603216, 0.59951 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="platform27" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 97.4854, 33.4159 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 156, 24, 12, 12 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platform27"]
+
+transform/pos = Vector2( 0.506615, 0 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 0.603216, 0, 0, 0.59951, -0.536815, -0.0172531 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform27/StaticBody2D"]
+
+transform/pos = Vector2( -0.536815, -0.0172531 )
+transform/scale = Vector2( 0.603216, 0.59951 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="platform28" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 110.871, 33.6717 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 168, 24, 12, 12 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platform28"]
+
+transform/pos = Vector2( 0.506615, 0 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 0.603216, 0, 0, 0.59951, -0.536815, -0.0172531 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform28/StaticBody2D"]
+
+transform/pos = Vector2( -0.536815, -0.0172531 )
+transform/scale = Vector2( 0.603216, 0.59951 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="platform29" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 110.871, 21.0536 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 168, 12, 12, 12 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platform29"]
+
+transform/pos = Vector2( 0.506615, 0 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 0.603216, 0, 0, 0.59951, -0.536815, -0.0172531 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform29/StaticBody2D"]
+
+transform/pos = Vector2( -0.536815, -0.0172531 )
+transform/scale = Vector2( 0.603216, 0.59951 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="platform24" type="Sprite" parent="."]
+
+transform/pos = Vector2( 110.63, 8.20877 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 168, 0, 12, 12 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="platform24"]
 
@@ -711,7 +840,9 @@ bounce = 0.0
 
 [node name="Polygon2D" type="Polygon2D" parent="platform24/StaticBody2D"]
 
-polygon = Vector2Array( -6.76329, -7.79344, 7.83932, 5.93176, -6.5126, 5.93176 )
+transform/pos = Vector2( -0.544462, -0.035861 )
+transform/scale = Vector2( 0.304655, 0.305822 )
+polygon = Vector2Array( -19.5526, 19.7532, 19.7629, 19.7942, -19.5311, -19.5815 )
 uv = Vector2Array(  )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
@@ -725,14 +856,14 @@ invert/border = 100.0
 
 [node name="platform25" type="Sprite" parent="."]
 
-transform/pos = Vector2( 115.608, 24.815 )
+transform/pos = Vector2( 110.66, 46.1503 )
 texture = ExtResource( 1 )
 region = true
-region_rect = Rect2( 132, 36, 12, 12 )
+region_rect = Rect2( 168, 36, 12, 12 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="platform25"]
 
-transform/pos = Vector2( 0.455566, 0 )
+transform/pos = Vector2( 0.370316, 0 )
 input/pickable = false
 collision/layers = 1
 collision/mask = 1
@@ -743,7 +874,9 @@ bounce = 0.0
 
 [node name="Polygon2D" type="Polygon2D" parent="platform25/StaticBody2D"]
 
-polygon = Vector2Array( -6.43737, -6.03993, -6.50004, 8.18666, 7.78922, -5.91458 )
+transform/pos = Vector2( -0.436962, 0.00150868 )
+transform/scale = Vector2( 0.305636, 0.304108 )
+polygon = Vector2Array( -19.7014, -19.7219, 19.4923, -19.6941, -19.6256, 19.6507 )
 uv = Vector2Array(  )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
