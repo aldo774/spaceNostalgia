@@ -25,7 +25,9 @@ var velocity = Vector2()
 var on_air_time = 100
 var jumping_animation = false
 var animating_jump = false
-
+var is_exploding = false
+var max_damage_supported = 2
+var velocity_on_collision = 0
 
 func _fixed_process(delta):
 	# Create forces
@@ -36,16 +38,17 @@ func _fixed_process(delta):
 	var jump = Input.is_action_pressed("jump")
 	
 	var stop = true
-	if (walk_left and velocity.y):
+	
+	if (walk_left and velocity.y and not is_exploding):
 		if (velocity.x <= WALK_MIN_SPEED and velocity.x > -WALK_MAX_SPEED):
 			force.x -= WALK_FORCE
 			stop = false
-	elif (walk_right and velocity.y):
+	elif (walk_right and velocity.y and not is_exploding):
 		if (velocity.x >= -WALK_MIN_SPEED and velocity.x < WALK_MAX_SPEED):
 			force.x += WALK_FORCE
 			stop = false
 	
-	if (stop):
+	if (stop and not is_exploding):
 		var vsign = sign(velocity.x)
 		var vlen = abs(velocity.x)
 		
@@ -57,21 +60,21 @@ func _fixed_process(delta):
 	
 	# Integrate forces to velocity
 	velocity += force*delta
-	
+
 	# Integrate velocity into motion and move
 	var motion = velocity*delta
 	
 	# Move and consume motion
-	motion = move(motion)
+	if not is_exploding:
+		motion = move(motion)
 	
 	var floor_velocity = Vector2()
 	
 	if (is_colliding()):
 		# You can check which tile was collision against with this
-		# print(get_collider_metadata())
-		
 		# Ran against something, is it the floor? Get normal
 		var n = get_collision_normal()
+		
 		
 		if (rad2deg(acos(n.dot(Vector2(0, -1)))) < FLOOR_ANGLE_TOLERANCE):
 			# If angle to the "up" vectors is < angle tolerance
@@ -93,19 +96,25 @@ func _fixed_process(delta):
 		else:
 			# For every other case of motion, our motion was interrupted.
 			# Try to complete the motion by "sliding" by the normal
+			
 			motion = n.slide(motion)
+			velocity_on_collision = velocity.y
 			velocity = n.slide(velocity)
 			# Then move again
 			move(motion)
+			if velocity_on_collision > 250:
+				max_damage_supported -= 1
+				take_damage()
+				
 	
 	if (floor_velocity != Vector2()):
 		# If floor moves, move with floor
 		move(floor_velocity*delta)
 	
-	if (jump):
+	if (jump and not is_exploding):
 		# Jump must also be allowed to happen if the character left the floor a little bit ago.
 		# Makes controls more snappy.
-		if not jumping_animation:
+		if not jumping_animation and not get_node("AnimationPlayer").is_playing():
 			jumping_animation = true
 		velocity.y = -JUMP_SPEED
 	else:
@@ -120,8 +129,20 @@ func _fixed_process(delta):
 			get_node("AnimationPlayer").play("stopped")
 			animating_jump = false
 	
+	if max_damage_supported <= 0 and not is_exploding:
+		is_exploding = explode_spaceship()
+	
 	on_air_time += delta
 
+func explode_spaceship():
+	get_node("AnimationPlayer").play("exploding")
+	yield(get_node("AnimationPlayer"), "finished")
+	queue_free()
+	return true
+
+func take_damage():
+	get_node("AnimationPlayer").play("takingDamage")
+	yield(get_node("AnimationPlayer"), "finished")
 
 func _ready():
 	set_fixed_process(true)
