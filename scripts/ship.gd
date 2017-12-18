@@ -29,13 +29,15 @@ var is_exploding = false
 var max_damage_supported = 2
 var velocity_on_collision = 0
 
+onready var stamina_bar = get_node("../staminabar")
+
 func _fixed_process(delta):
 	# Create forces
 	var force = Vector2(0, GRAVITY)
 	
 	var walk_left = Input.is_action_pressed("move_left")
 	var walk_right = Input.is_action_pressed("move_right")
-	var jump = Input.is_action_pressed("jump")
+	var jump = Input.is_action_pressed("jump") and stamina_bar.get_staminabar_len() > 0.1
 	
 	var stop = true
 	
@@ -111,7 +113,8 @@ func _fixed_process(delta):
 		# If floor moves, move with floor
 		move(floor_velocity*delta)
 	
-	if (jump and not is_exploding):
+	if (jump and not is_exploding and stamina_bar.get_staminabar_len() > 0):
+		# get_node("s").set_scale(Vector2(.5, 1))
 		# Jump must also be allowed to happen if the character left the floor a little bit ago.
 		# Makes controls more snappy.
 		if not jumping_animation and not get_node("AnimationPlayer").is_playing():

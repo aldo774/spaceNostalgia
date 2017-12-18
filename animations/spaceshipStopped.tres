@@ -11,9 +11,9 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0 ),
+"times": FloatArray( 0.1 ),
 "transitions": FloatArray( 1 ),
 "update": 1,
-"values": [ 8 ]
+"values": [ 10 ]
 }
 
