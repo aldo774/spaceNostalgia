@@ -19,7 +19,7 @@ func init(max_value, current_value):
 	
 	
 func update(value):
-	if value >= 0 and value <= 1:
+	if value >= -0.05 and value <= 1:
 		stamina.set_scale(Vector2(value, 1))
 	
 func get_staminabar_len():
