@@ -16,10 +16,12 @@ const WALK_FORCE = 600
 const WALK_MIN_SPEED = 10
 const WALK_MAX_SPEED = 170
 const STOP_FORCE = 1300
-const JUMP_SPEED = 100
+const JUMP_SPEED = 150
 
 const SLIDE_STOP_VELOCITY = 1.0 # One pixel per second
 const SLIDE_STOP_MIN_TRAVEL = 1.0 # One pixel
+
+const TIPO = 'CENARIO'
 
 var velocity = Vector2()
 var on_air_time = 100
@@ -31,6 +33,7 @@ var time_to_charge_again = 10
 var velocity_on_collision = 0
 
 onready var stamina_bar = get_node("../staminabar")
+#onready var enemies = preload("res://scenes/robo.tscn").get_nodes_in_group("inimigo")
 
 func _fixed_process(delta):
 	# Create forces
@@ -105,7 +108,7 @@ func _fixed_process(delta):
 			velocity = n.slide(velocity)
 			# Then move again
 			move(motion)
-			if velocity_on_collision > 250:
+			if velocity_on_collision > 350:
 				max_damage_supported -= 1
 				take_damage()
 				
@@ -162,3 +165,4 @@ func take_damage():
 
 func _ready():
 	set_fixed_process(true)
+
